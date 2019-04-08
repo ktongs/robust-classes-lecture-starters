@@ -1,5 +1,7 @@
 package model;
 
+import exceptions.NotHungry;
+
 import java.util.List;
 
 public class Keeper {
@@ -10,12 +12,10 @@ public class Keeper {
         animalsToFeed = animals;
     }
 
-    public void feed() {
-        for (Animal animal : animalsToFeed) {
-            if (!animal.isHungry()) {
-                int eatenTimes = animal.eat();
-                System.out.println("Animal has been fed "+ eatenTimes);
-            }
+    public void feed() throws NotHungry {
+        for (Animal animal : animalsToFeed){
+            int eatenTimes = animal.eat();
+            System.out.println("Animal has been fed "+ eatenTimes);
         }
     }
 
